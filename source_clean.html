@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Samuel Omidiji — Product Designer, Developer & Art Director</title>
+  <meta name="description" content="Product designer, front-end developer, and art director crafting thoughtful digital products, motion, and brand systems. Based in Illinois and collaborating remotely.">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css?v=4" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+    .section-large {
+      padding: 128px 0;
+    }
+    .section {
+      padding: 64px 0;
+    }
+    .expandable-section {
+      margin-bottom: 64px;
+    }
+    .hero {
+      padding: 156px var(--spacing-sm);
+      position: relative;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      color: var(--color-text);
+      opacity: 0.9;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      border: 1px solid rgba(26, 26, 26, 0.3);
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    .scroll-down:hover {
+      opacity: 1;
+      transform: translateX(-50%) translateY(5px);
+      border-color: rgba(26, 26, 26, 0.6);
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    .scroll-down svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2.5;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+    @media (max-width: 768px) {
+      .scroll-down {
+        bottom: 20px;
+        width: 32px;
+        height: 32px;
+      }
+      .scroll-down svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">SAM OMIDIJI</a>
+      <ul class="nav-links">
+        <li><a href="#works" class="nav-link">Works</a></li>
+        <li><a href="#about" class="nav-link">About me</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero" style="position: relative;">
+    <canvas id="arkanoidHero" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none;"></canvas>
+    <button id="tryAgainButton" style="display: none;">TRY AGAIN</button>
+    <button id="playAgainButton" style="display: none;">PLAY AGAIN</button>
+    <div id="victoryMessage" style="display: none;">
+      <span class="victory-word">Designing</span>
+      <span class="victory-word">and</span>
+      <span class="victory-word">building</span>
+      <span class="victory-word">interactive</span>
+      <span class="victory-word">digital</span>
+      <span class="victory-word">experiences</span>
+    </div>
+    <div class="hero-content" style="opacity: 0;">
+      <h1 class="hero-name">SAM<br>OMIDIJI</h1>
+      <p class="hero-subtitle">Designing and building interactive digital experiences.</p>
+    </div>
+  </header>
+
+  <!-- Work Section -->
+  <section class="work-section section-large" id="works">
+    <div class="container">
+      <!-- Expandable Work Section -->
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">UX Design</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <a href="stella.html">
+                <img src="images/stella thumbnail.png" alt="STELLA" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">STELLA</h3>
+                  <p class="work-category">Smart travel experience with AI Driven personalized Audio Tour - EXPEDIA Group</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="africanunion.html">
+                <img src="images/AU-1.png" alt="African Union" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">African Union</h3>
+                  <p class="work-category">SoAYR — turning locked youth development data into a public, interactive dashboard.</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="casaflo.html">
+                <img src="images/Casaflo-1.png" alt="CasaFlo" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">CasaFlo</h3>
+                  <p class="work-category">Turning Lagos short-let trust into a self-serve booking platform for stays and more.</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="rainydayssaver.html">
+                <img src="images/rainyday-2.png" alt="Rainydays Saver" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">Rainydays Saver</h3>
+                  <p class="work-category">Digitizing savings and credit—admin and consumer—without losing human reassurance.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">Game and VR Development</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/11BVl35T8QI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Art Gallery</h3>
+                <p class="work-category">A Virtual Gallery made with Unity</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/BoaX7tPLmxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">HiloWin</h3>
+                <p class="work-category">A Shooting Game made with Unity</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/gvbBYsfPS7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">HiloWin VR</h3>
+                <p class="work-category">The VR version of HiloWin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">Passion Projects</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <a href="https://samomidiji.github.io/CTK302/Unit4/weather/" target="_blank" rel="noopener">
+                <img src="images/jacket.png" alt="Jacket" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">Jacket</h3>
+                  <p class="work-category">Weather-based outfit recommender using geolocation and P5.js.</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="https://samomidiji.github.io/CTK302/Unit3/MP3/" target="_blank" rel="noopener">
+                <img src="images/trashy.png" alt="Prity Trashy" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">Prity Trashy</h3>
+                  <p class="work-category">Interactive P5.js game where players stop falling trash to save the planet.</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="https://samomidiji.github.io/CTK302/Unit2/MP2/" target="_blank" rel="noopener">
+                <img src="images/race.png" alt="Voice Race" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">Voice Race</h3>
+                  <p class="work-category">Voice-controlled racing game that converts microphone volume into speed.</p>
+                </div>
+              </a>
+            </div>
+            <div class="work-item">
+              <a href="https://samomidiji.github.io/CTK302/Unit4/SpaceFighter/" target="_blank" rel="noopener">
+                <img src="images/fighter.png" alt="Alien Wars" loading="lazy">
+                <div class="work-info">
+                  <h3 class="work-title">Alien Wars</h3>
+                  <p class="work-category">P5.js space shooter using gyroscope or keyboard controls to defend Earth.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">Pop Art</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <img src="images/PANDEMIC-port-.jpg" alt="Pandemic Pop Art" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/AFRO-ASTR-PORT.jpg" alt="Afro Astro Pop Art" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/GBEMI-PORT.jpg" alt="Gbemi Pop Art" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/BUKOLA-port.jpg" alt="Bukola Pop Art" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/BLOOMBOX-PORT.jpg" alt="Bloombox Pop Art" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/CONNY-PORT-.jpg" alt="Conny Pop Art" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">AD Posters</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <img src="images/WILDLIFE---2.jpg" alt="Wildlife Art Direction" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/e08c5d77046389.5c7c4f203f70d.jpg" alt="Art Direction Project" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/1784c377046627.5c7c50d4d29de.jpg" alt="Art Direction Project" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/DEMO-1Artboard-2.jpg" alt="Art Direction Project" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/LITERACY-DAY.jpg" alt="Literacy Day" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/IWD.jpg" alt="International Women's Day" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/FOLLOWArtboard-5.jpg" alt="Follow Artboard" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/FOLLOWArtboard-4.jpg" alt="Follow Artboard" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/FOLLOWArtboard-6.jpg" alt="Follow Artboard" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/FOLLOW6.jpg" alt="Follow Project" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/PULSE02.jpg" alt="Pulse Project" loading="lazy">
+            </div>
+            <div class="work-item">
+              <img src="images/TRACE--D-MUSIC2.jpg" alt="Trace Music Project" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expandable-section">
+        <div class="expandable-header">
+          <h3 class="expandable-title">Motion</h3>
+          <span class="expandable-toggle">▼</span>
+        </div>
+        <div class="expandable-content">
+          <div class="work-grid">
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YLWjUcqYX2c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Appruve Business</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/w5ohaYsJzW8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">MTN 500K Followers</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/ntKdvK_wTlE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Friday Yolo</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YvhBoXbtqcU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">WTISD 2019</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/cZlKZezzWg4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Mtn4me</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/rKfB4oSGy3o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">MTN 400K</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/UhWWi8RKOVI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">MTN Friday Post</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/MJ25eOk8Jzo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Jolloday</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+            <div class="work-item">
+              <div style="padding-top: 56.25%; position: relative; background: #000;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/VLR7uSN_-6g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">MTN IG Tip</h3>
+                <p class="work-category">Motion Graphics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section section-large" id="about">
+    <div class="container">
+      <div class="about-image-wrapper">
+        <img src="images/samuel_omidiji.jpg" alt="Samuel Omidiji" class="about-image" loading="lazy">
+      </div>
+      <div class="about-text-wrapper">
+        <h2 class="section-title">About me</h2>
+        <div class="about-text">
+          <p>I’m Samuel Omidiji, a multidisciplinary designer and creative technologist focused on turning complex ideas into clear, interactive, and scalable digital experiences. I blend UX design, visual storytelling, and rapid prototyping to explore new interfaces across web, mobile, AI, and emerging tech. My work spans creative coding, mixed reality concepts, and experimental tools that push how people interact with technology. I move fast from idea to prototype, collaborating tightly with product and engineering to bring bold ideas to life.</p>
+          <p>Toolbox: Figma, HTML/CSS/JS, P5.js, Webflow, Adobe Creative Suite, Unity, and AI tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section section-large" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="contact-title">Let’s turn your next idea into an experience.</h2>
+        <p class="section-subtitle">Tell me what you’re imagining and I’ll reply with how we can make it real</p>
+        
+        <div class="contact-info">
+          <div class="email-wrapper">
+            <a href="mailto:omidijisamuel96@gmail.com" class="email-link">omidijisamuel96@gmail.com</a>
+            <button class="copy-btn" aria-label="Copy email to clipboard">Copy</button>
+          </div>
+          
+          <div class="available-badge">Now Booking Collaborations</div>
+        </div>
+
+        <ul class="social-links">
+          <li><a href="https://dribbble.com/SamOmidiji" target="_blank" rel="noopener" class="social-link" aria-label="Dribbble"><img src="images/dribbble.svg" alt="Dribbble" loading="lazy"></a></li>
+          <li><a href="https://twitter.com/samomidiji" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><img src="images/twitter.svg" alt="Twitter" loading="lazy"></a></li>
+          <li><a href="https://www.instagram.com/samomidiji/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram" loading="lazy"></a></li>
+          <li><a href="https://www.linkedin.com/in/samuel-omidiji-585863127/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><img src="images/linkedin.svg" alt="LinkedIn" loading="lazy"></a></li>
+          <li><a href="https://github.com/Samomidiji" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><img src="images/github.svg" alt="GitHub" loading="lazy"></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>All rights reserved, SAM OMIDIJI ©2024</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=2"></script>
+  <script src="js/animations.js?v=2"></script>
+  <script src="js/contact.js?v=2"></script>
+  <script src="js/arkanoid.js?v=7"></script>
+</body>
+</html>

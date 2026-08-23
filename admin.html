@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEV KREATION - Admin Dashboard</title>
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css?v=5" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      padding: 40px 20px;
+    }
+    .admin-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    /* Login Screen */
+    #auth-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10vh;
+    }
+    .auth-box {
+      border: 1px solid var(--color-text);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .auth-box h1 { margin-top: 0; font-size: 2rem; margin-bottom: 32px; text-transform: uppercase;}
+    
+    .form-group {
+      margin-bottom: 24px;
+      width: 100%;
+      position: relative;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    input[type="email"], input[type="password"], input[type="text"], input[type="url"], select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--color-text);
+      background: transparent;
+      color: var(--color-text);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-width: 2px;
+      padding: 13px 15px;
+    }
+    
+    .password-wrapper {
+      position: relative;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toggle-password:hover { opacity: 1; }
+    .toggle-password svg { pointer-events: none; }
+    
+    .btn {
+      background-color: var(--color-text);
+      color: var(--color-bg);
+      border: 1px solid var(--color-text);
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    .btn:hover {
+      background-color: transparent;
+      color: var(--color-text);
+    }
+    
+    /* Dashboard Screen */
+    #dashboard-section {
+      display: none;
+    }
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      border-bottom: 2px solid var(--color-text);
+      padding-bottom: 20px;
+    }
+    .admin-header h1 { margin: 0; text-transform: uppercase;}
+    .logout-btn { width: auto; padding: 10px 20px; }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    
+    .upload-panel {
+      border: 1px solid var(--color-text);
+      padding: 32px;
+      position: sticky;
+      top: 40px;
+    }
+    .upload-panel h2 { margin-top: 0; margin-bottom: 24px; text-transform: uppercase;}
+    
+    .category-group {
+      margin-bottom: 40px;
+    }
+    .category-title {
+      font-size: 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    
+    .projects-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .admin-project-card {
+      border: 1px solid var(--color-text);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .admin-project-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border: 1px solid var(--color-text);
+    }
+    .admin-project-details { flex-grow: 1; }
+    .admin-project-details h4 { margin: 0 0 4px 0; font-size: 1.1rem; }
+    .admin-project-details p { margin: 0; font-size: 0.85rem; opacity: 0.7; }
+    
+    .delete-btn {
+      background-color: transparent;
+      color: #ff3b30;
+      border: 1px solid #ff3b30;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    .delete-btn:hover {
+      background-color: #ff3b30;
+      color: white;
+    }
+    
+    @media (max-width: 900px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .upload-panel { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- Auth Section -->
+    <div id="auth-section">
+      <div class="auth-box">
+        <h1>Admin Portal</h1>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="admin@example.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="••••••••">
+            <span class="toggle-password" id="toggle-password">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <button class="btn" id="login-btn">Log In</button>
+        <p id="auth-error" style="color: #ff3b30; display: none; margin-top: 16px; font-weight: 500;"></p>
+      </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section">
+      <div class="admin-header">
+        <h1>Dashboard</h1>
+        <button class="btn logout-btn" id="logout-btn">Log Out</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Add Project Form -->
+        <div class="upload-panel">
+          <h2>Upload Project</h2>
+          <div class="form-group">
+            <label>Select Category</label>
+            <select id="proj-category">
+              <option value="UI/UX Design">UI/UX Design</option>
+              <option value="Things I've Built">Things I've Built</option>
+              <option value="Brandings">Brandings</option>
+              <option value="Visual Designs">Visual Designs</option>
+              <option value="Certifications">Certifications</option>
+              <option value="Experience">Experience</option>
+              <option value="CVs / RESUMEs">CVs / RESUMEs</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project Title</label>
+            <input type="text" id="proj-title" placeholder="e.g. CasaFlo App">
+          </div>
+          <div class="form-group" id="fg-desc">
+            <label>Short Description (Optional)</label>
+            <textarea id="proj-desc" rows="3" placeholder="What is this project about?"></textarea>
+          </div>
+          <div class="form-group" id="fg-link">
+            <label>External Link (Optional)</label>
+            <input type="url" id="proj-link" placeholder="https://...">
+          </div>
+          <div class="form-group" id="fg-image">
+            <label>Upload Thumbnail Image</label>
+            <input type="file" id="proj-image" accept="image/*" style="border:none; padding:0; margin-top:10px;">
+          </div>
+          <div class="form-group" id="fg-content-images">
+            <label>Upload Case Study Images (Multiple allowed)</label>
+            <input type="file" id="proj-content-images" accept="image/*" multiple style="border:none; padding:0; margin-top:10px;">
+            <p style="margin: 4px 0 0; font-size: 0.85rem; opacity: 0.7;">Hold Ctrl or Shift to select multiple images for the full Behance-style project view.</p>
+          </div>
+          <div class="form-group" id="fg-video" style="display:flex; align-items:center; gap:10px;">
+            <input type="checkbox" id="proj-video" style="width: auto;"> 
+            <label style="margin:0; font-size:0.9rem; font-weight:normal;">Is this a YouTube Video? (paste embed URL in Link)</label>
+          </div>
+          <div class="form-group" id="fg-document" style="display:none;">
+            <label>Upload Document (PDF)</label>
+            <input type="file" id="proj-document" accept="application/pdf" style="border:none; padding:0; margin-top:10px;">
+          </div>
+          <button class="btn" id="add-proj-btn">Publish Project</button>
+          <p id="form-msg" style="margin-top: 16px; font-weight: 500;"></p>
+        </div>
+
+        <!-- Project List categorized -->
+        <div id="projects-container">
+          <!-- Categories will be injected here via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>
