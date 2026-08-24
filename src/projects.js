@@ -74,7 +74,11 @@ async function loadProjects() {
             const hasContentImages = proj.content_images && proj.content_images.length > 0;
             if (!hasContentImages && proj.project_link) {
               // Open external link directly
-              window.open(proj.project_link, '_blank', 'noopener,noreferrer');
+              let finalLink = proj.project_link;
+              if (!/^https?:\/\//i.test(finalLink)) {
+                finalLink = 'https://' + finalLink;
+              }
+              window.open(finalLink, '_blank', 'noopener,noreferrer');
             } else {
               // Open Behance-style modal
               openProjectModal(proj.id);
